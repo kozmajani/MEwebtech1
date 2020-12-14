@@ -32,7 +32,7 @@ function startAndPause() {
     btn.innerHTML = "Play";
   }
 }
-
+//autók betöltése, többi felület elrejtése
 function listCars() {
 	$("#mainDiv").fadeOut(700);
 	$("#listManufacturers").hide();
@@ -69,7 +69,7 @@ function listCars() {
         $('#carList').html(table);
     });
 }
-
+//gyártók betöltése, többi felület elrejtése
 function listManufacturers() {
 	$("#mainDiv").fadeOut(700);
     $("#carList").fadeOut(700);
@@ -97,7 +97,7 @@ function listManufacturers() {
         $('#listManufacturers').html(table);
     });
 }
-
+//autó hozzáadása függvény
 function addCar() {
 	$("#mainDiv").fadeOut(700);
     $("#listManufacturers").hide();
@@ -119,16 +119,16 @@ function addCar() {
         })
     });
 }
-
+//oldalsó menüsáv megnyitása, méretének növelése
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
 }
 
-/* Set the width of the side navigation to 0 */
+//oldalsó menüsáv mbezárása, méretének csökkentése
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
-
+//autó törlése a listából
 function deleteCar (id) {
     $.ajax({
         url: `https://webtechcars.herokuapp.com/api/cars/`+id,
@@ -143,7 +143,7 @@ function deleteCar (id) {
     });
 }
 
-/*A "Car" listából való törléshez betölti a teljes listát, egy "Delete" gombbal kiegészítve */
+//autó lista és egy delete gomb a sorok mellett a törléshez
 function deleCar() { 
 	$("#mainDiv").fadeOut(700);
     $("#listManufacturers").hide();
@@ -182,7 +182,7 @@ function deleCar() {
         $('#carList').html(table);
     });
 }
-
+//autó szerkesztése felület megjelenítése az autó listával együtt
 function modCar() {
 	$("#mainDiv").fadeOut(700);
     $("#listManufacturers").hide();
@@ -226,7 +226,6 @@ function modifyCar(car){
         }
     });
 }
-
 function szerkCar() {
 	$("#mainDiv").fadeOut(700);
     $("#listManufacturers").hide();
@@ -266,7 +265,7 @@ function szerkCar() {
     });
 }
 
-
+//gyártó szerkesztése felület a lista megjelenítésével
 function szerkManufacturer() {
 	$("#mainDiv").fadeOut(700);
     $("#carList").hide();
@@ -297,7 +296,7 @@ function szerkManufacturer() {
     });
 }
 
-/*A "Manufacturers" listából törléshez betölti az egész listát egy "Delete" gombbal kiegésztítve */
+//gyártók listájának megjelenítése plusz egy delete gomb a törléshez
 function deleManufacturer() {
 	$("#mainDiv").fadeOut(700);
     $("#carList").hide();
@@ -328,7 +327,7 @@ function deleManufacturer() {
     });	
 }
 
-/*A "Manufacturers" listából egy elem törlése */
+//egy gyártó törlése a listából
 function deleteManufacturer (id) {
     $.ajax({
         url: `https://webtechcars.herokuapp.com/api/manufacturers/`+id,
@@ -344,7 +343,7 @@ function deleteManufacturer (id) {
 
 }
 
-/*A "Manufacturers" lista elemének szerkesztéséhez betöltött felület és adatok*/
+//a gyártók lista elemének szerkesztéséhez betöltött felület és adatok
 function modifyManufacturer(manuf){
     modManufacturer()
     $('#modManufacturerForm #modId').val(manuf._id)
@@ -353,7 +352,7 @@ function modifyManufacturer(manuf){
     $('#modManufacturerForm #modFounded').val(manuf.founded)
 }
 
-/*A "Manufacturers" listához elem hozzáadásához szükséges felület betöltése */
+//a gyártók listához elem hozzáadása felület megjelenítése
 function addManufacturer() {
 	$("#mainDiv").fadeOut(700);
     $("#carList").hide();
@@ -364,7 +363,7 @@ function addManufacturer() {
 	$("#addManufacturer").fadeIn(800);
 }
 
-/*A "Manufacturers" lista egy elemének módosításához szükséges felület betöltése */
+//gyártók szerkesztése felület
 function modManufacturer() {
 	$("#mainDiv").fadeOut(700);
     $("#carList").hide();
@@ -377,11 +376,11 @@ function modManufacturer() {
 
 $(function() {
 
-	/*Elem hozzáadása a "Car" listához*/
+	//egy autó hozzáadása felület
     $('#addCarForm').on("submit", function (e) {
         e.preventDefault();
 		
-		/*Ellenőrzi, hogy minden adatok megadtak-e */
+		//üres mező ellenőrzés:
 		if((($("#addCarName").val()) == "") || (($("#addConsumption").val()) == "") || (($("#addColor").val()) == "") || (($("#dropdown").val()) == "") || (($("#addAvailable").val()) == "")
 		|| (($("#addYear").val()) == "") || (($("#addHorsepower").val()) == "")) {
 			alert("Error! You forgot to give atleast one data!");
@@ -410,11 +409,11 @@ $(function() {
 		}
     });
 
-	/*Elem módosítása a "Car" listában */
+	//egy autó szerkesztése
     $('#modCarForm').on("submit", function (e) {
         e.preventDefault();
 		
-		/*Ellenőrzi, hogy minden adat meg lett-e adva */
+		//üres mező ellenőrzés:
 		if((($("#modCarId").val()) == "") || (($("#modCarName").val()) == "") || (($("#modConsumption").val()) == "") || (($("#modColor").val()) == "") || (($("#moddropdown").val()) == "") || (($("#modAvailable").val()) == "")
 		|| (($("#modYear").val()) == "") || (($("#modHorsepower").val()) == "")) {
 			alert("Error! You forgot to give atleast one data!");
@@ -446,11 +445,11 @@ $(function() {
 		}
     });
 
-	/*Elem hozzáadása a "Manufacturers" listához */
+	//gyártó hozzáadása
     $('#addManufacturerForm').on("submit", function (e) {
         e.preventDefault();
 		
-		/*Ellenőrzi, hogy minden adatot megadott-e a felhasználó */
+		//üres mező ellenőrzés:
 		if((($("#addName").val()) == "") || (($("#addCountry").val()) == "") || (($("#addFounded").val()) == "")) {
 			alert("Error! You forgot to give atleast one data!");
 		} else {
@@ -473,11 +472,11 @@ $(function() {
 		}
     });
 
-	/*Egy elem módosítása a "Manufacturers" listában */
+	//egy gyártó módosítása
     $('#modManufacturerForm').on("submit", function (e) {
         e.preventDefault();
 		
-		/*Ellenőrzi, hogy minden adat meg lett-e adva */
+		//üres mező ellenőrzés:
 		if((($("#modId").val()) == "") || (($("#modName").val()) == "") || (($("#modCountry").val()) == "") || (($("#modFounded").val()) == "")) {
 			alert("Error! You forgot to give atleast one data!");
 		} else {

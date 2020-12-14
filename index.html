@@ -20,7 +20,7 @@
 		<div class="welcome">
 			<h1 align="center" style="color: white;">Üdv a Kozma Szalonban!</h1>
 		</div>
-	<div class="topnav" id="myTopnav">
+	<div class="topnav" id="myTopnav"><!----Felső menüsáv funkciók bekötése + css formázás----->
 		<a id="homeButton" onclick="homeMenu()" class="active"><b>Főoldal</b></a>
 		<a id="showCarsButton" onclick="listCars()"><b>Autóink</b></a>
 		<a id="showManufacturersButton" onclick="listManufacturers()"><b>Gyártók</b></a>
@@ -30,7 +30,7 @@
 		</a>
 	</div>
 	
-	<div id="mySidenav" class="sidenav">
+	<div id="mySidenav" class="sidenav"><!----Oldalsó rejtett menüsáv funkcióinak bekötése + css formázás----->
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="#myTopnav" id="plusCarsButton" onclick="addCar()" style="color:green;">+ Autó hozzáadása</a>
 		<a href="#myTopnav" id="plusManufacturersButton" onclick="addManufacturer()"style="color:green;">+ Gyártó hozzáadása</a>
@@ -48,7 +48,7 @@
     
 	</div>
 	
-	<div id="mainDiv">		
+	<div id="mainDiv"><!-------Az egész főoldal-------->
 		<div>
 			<video autoplay muted loop id="myVideo">
 				<source src="images/bgvideo.mp4" type="video/mp4">
@@ -82,7 +82,7 @@
 			</table>
 	</div>
 
-	
+	<!----Autó hozzáadása felület--->
 	<div id="addCar">
 		<div id="carcontent">
 			<form action="addCar" method="post" id="addCarForm">
@@ -126,7 +126,7 @@
 		<br>
 		<br>
 	</div>
-	
+	<!----Autó szerkesztése felület--->
 	<div id="modCar">
 		<div id="carmodcontent">
 			<form action="modCar" method="post" id="modCarForm">
@@ -174,7 +174,7 @@
 		<br>
 	</div>
 
-
+	<!----Gyártó hozzáadása felület--->
 	<div id="addManufacturer">
 		<div id="manucontent">
 			<form action="addManufacturer" method="post" id="addManufacturerForm">
@@ -198,7 +198,7 @@
 		<br>
 		<br>
 	</div>
-	
+	<!----Gyártó szerkesztése felület--->
 	<div id="modManufacturer">
 		<div id="manufmodcontent">
 			<form action="modManufacturer" method="post" id="modManufacturerForm">
