@@ -1,0 +1,233 @@
+<!---Webtechnológiák I.------------------------------------>
+
+<!---Kozma János SVOXGH------------------------------------>
+
+<!---kozmajani14@gmail.com--------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <title>Kozma Szalon</title>
+    <link href="css/index.css" rel="stylesheet">
+	<link rel="icon" href="images/icon.png" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>	
+		<div class="welcome">
+			<h1 align="center" style="color: white;">Üdv a Kozma Szalonban!</h1>
+		</div>
+	<div class="topnav" id="myTopnav">
+		<a id="homeButton" onclick="homeMenu()" class="active"><b>Főoldal</b></a>
+		<a id="showCarsButton" onclick="listCars()"><b>Autóink</b></a>
+		<a id="showManufacturersButton" onclick="listManufacturers()"><b>Gyártók</b></a>
+		<a href="#cont" onclick="homeMenu()"><b>Elérhetőség</b></a>
+		<a <span style="float:right;" onclick="openNav()">több</span></a>
+		<i class="fa fa-bars"></i>
+		</a>
+	</div>
+	
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#myTopnav" id="plusCarsButton" onclick="addCar()" style="color:green;">+ Autó hozzáadása</a>
+		<a href="#myTopnav" id="plusManufacturersButton" onclick="addManufacturer()"style="color:green;">+ Gyártó hozzáadása</a>
+		<a href="#myTopnav" id="modCarsButton" onclick="szerkCar()">Autó szerkesztése</a>
+		<a href="#myTopnav" id="modManufacturersButton" onclick="modifManufacturer()">Gyártó szerkesztése</a>
+		<a href="#myTopnav" id="minusManufacturerButton" onclick="deleCar()" style="color:red;">- Autó törlése</a>
+		<a href="#myTopnav" id="minusCarButton" onclick="deleManufacturer()" style="color:red;">- Gyártó törlése</a>
+	</div>
+		
+	<div id="carList" align="center">
+    
+	</div>
+	
+	<div id="listManufacturers" align="center">
+    
+	</div>
+	
+	<div id="mainDiv">		
+		<div>
+			<video autoplay muted loop id="myVideo">
+				<source src="images/bgvideo.mp4" type="video/mp4">
+			</video>
+			
+			<table class="customTable" width="100%" align="center" style="background-color:black;border:0px;font-size:10px;">
+			<tr>
+				<td style="text-align:left;">
+					<button id="myBtn" onclick="startAndPause()">Pause</button>
+				</td>
+				<td style="text-align:right; padding-right:30px;">
+					<h1 style="color:white">Bugatti Chiron 0-400-0 km/h by Juan Pablo Montoya</h1>	
+				</td>
+			</tr>
+			</table>
+			
+		</div>
+			<table class="customTable" width="25%" align="center">
+			<tr>
+				<td style="padding:5px;">
+					<img src="images/sadfatdog.jpg" alt="Me" style="width:100%">
+				</td>
+					<td>
+						<h1>Kozma János</h1>
+						<p style="font-size:18px;"><b>Programtervező informatikus</b></p>
+						<p>Miskolci Egyetem</p>
+						<p>kozmajani14@gmail.com</p>
+						<p>github.com/kozmajani/MEwebtech1</p>
+					</td>
+				</tr>
+			</table>
+	</div>
+
+	
+	<div id="addCar">
+		<div id="carcontent">
+			<form action="addCar" method="post" id="addCarForm">
+		<table style="background-color:white;">
+		<tr>
+		<td>Name</td>
+		<td><input id="addCarName" type="text" name="name"></td>
+		</tr>
+		<tr>
+			<td>Consumption</td>
+				<td><input id="addConsumption" type="text" name="consumption"></td>
+			</tr>
+			<tr>
+				<td>Color</td>
+			<td><input id="addColor" type="text" name="color"></td>
+				</tr>
+		<tr>
+			<td>Manufacturer</td>
+			<td>
+				<select name="manufacturer" id="dropdown">
+
+		</select>
+					</td>
+		</tr>
+			<tr>
+				<td>Available</td>
+		<td><input id="addAvailable" type="text" name="avaiable"></td>
+			</tr>
+				<tr>
+		<td>Year</td>
+				<td><input id="addYear" type="text" name="year"></td>
+			</tr>
+				<tr>
+			<td>HorsePower</td>
+				<td><input id="addHorsepower" type="text" name="horsepower"></td>
+			</tr>
+		</table>
+			<input id="submit" type="submit" value="Add Car">
+		</form>
+		</div>
+		<br>
+		<br>
+	</div>
+	
+	<div id="modCar">
+		<div id="carmodcontent">
+			<form action="modCar" method="post" id="modCarForm">
+				<table style="background-color:white;">
+					<tr>
+		<td>ID</td>
+			<td><input id="modCarID" type="text" name="_id" readonly></td>
+				</tr>
+		<tr>
+			<td>Name</td>
+			<td><input id="modCarName" type="text" name="name"></td>
+			</tr>
+				<tr>
+			<td>Consumption</td>
+				<td><input id="modConsumption" type="text" name="consumption"></td>
+		</tr>
+			<tr>
+			<td>Color</td>
+				<td><input id="modColor" type="text" name="color"></td>
+			</tr>
+		<tr>
+	<td>Manufacturer</td>
+		<td>
+			<select name="manufacturer" id="moddropdown">
+		</select>
+			</td>
+		</tr>
+			<tr>
+				<td>Available</td>
+			<td><input id="modAvailable" type="text" name="avaiable"></td>
+		</tr>
+			<tr>
+			<td>Year</td>
+		<td><input id="modYear" type="text" name="year"></td>
+			</tr>
+			<tr>
+				<td>HorsePower</td>
+			<td><input id="modHorsepower" type="text" name="horsepower"></td>
+			</tr>
+			</table>
+		<input id="submit" type="submit" value="Modify Car">
+		</form>
+		</div>
+		<br>
+		<br>
+	</div>
+
+
+	<div id="addManufacturer">
+		<div id="manucontent">
+			<form action="addManufacturer" method="post" id="addManufacturerForm">
+		<table style="background-color:white;">
+			<tr>
+			<td>Name</td>
+				<td><input id="addName" type="text" name="name"></td>
+			</tr>
+			<tr>
+			<td>Country</td>
+			<td><input id="addCountry" type="text" name="country"></td>
+			</tr>
+		<tr>
+		<td>Founded</td>
+			<td><input id="addFounded" type="text" name="founded"></td>
+			</tr>
+	</table>
+		<input id="submit" type="submit" value="Add Manufacturer">
+		</form>
+		</div>
+		<br>
+		<br>
+	</div>
+	
+	<div id="modManufacturer">
+		<div id="manufmodcontent">
+			<form action="modManufacturer" method="post" id="modManufacturerForm">
+		<table style="background-color:white;">
+			<tr>
+				<td>Id</td>
+			<td><input id="modId" type="text" name="_id" readonly></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input id="modName" type="text" name="name"></td>
+				</tr>
+			<tr>
+			<td>Country</td>
+				<td><input id="modCountry" type="text" name="country"></td>
+			</tr>
+		<tr>
+		<td>Founded</td>
+	<td><input id="modFounded" type="text" name="founded"></td>
+		</tr>
+	</table>
+		<input id="submit" type="submit" value="Modify Manufacturer">
+		</form>
+		</div>
+		<br>
+		<br>
+	</div>
+	
+	<script src="js/index.js"></script>
+	
+</body>
+</html>
